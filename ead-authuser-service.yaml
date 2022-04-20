@@ -1,8 +1,8 @@
 server:
   port: 8087
   servlet:
-   context-path: '/ead-authuser/'
-  
+    context-path: "/ead-authuser/"
+
 spring:
   application:
     name: ead-authuser-service
@@ -21,7 +21,7 @@ spring:
         show_sql: true
   rabbitmq:
     addresses: amqp://admin:admin@localhost:5672
-        
+
 logging:
   level:
     br.com.ead: TRACE
@@ -29,27 +29,25 @@ logging:
     #DETALHES DE REQUEST WEB
     org.springframework.web: DEBUG
     org.hibernate: INFO
-    
+
 ead:
   api:
     url:
-      course: 'http://ead-course-service/ead-course'
+      course: "http://ead-course-service/ead-course"
   broker:
     exchange:
       userEvent: ead.userevent
     queue:
       userEvent:
-        course: ead.userevent.ms.course    
-       
-    
+        course: ead.userevent.ms.course
+
 eureka:
   client:
     service-url:
-      default-zone: 'http://localhost:8087/eureka'
+      default-zone: "http://localhost:8087/eureka"
   instance:
     hostname: localhost
-    
-    
+
 resilience4j:
   retry:
     instances:
@@ -64,5 +62,12 @@ resilience4j:
         sliding-window-type: TIME_BASED
         minimum-number-of-calls: 2
         wait-duration-in-open-state: 30s
-        failure-rate-threshold: 80          
-                     
+        failure-rate-threshold: 80
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+          - health
