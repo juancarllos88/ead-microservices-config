@@ -1,6 +1,16 @@
+ead:
+  serviceRegistry:
+    username: ead
+    password: ead
+  auth:
+    jwtSecret: ead
+    jwtExpiration: 3600000
+
 eureka:
   client:
     service-url:
-      default-zone: 'http://localhost:8761/eureka'
+      default-zone: "http://localhost:8087/eureka"
+      # quando service-registry tiver com spring security ativado
+      #default-zone: "http://${ead.serviceRegistry.username}:${ead.serviceRegistry.password}@localhost:8761/eureka"
   instance:
     hostname: localhost

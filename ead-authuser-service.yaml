@@ -21,6 +21,8 @@ spring:
         show_sql: true
   rabbitmq:
     addresses: amqp://admin:admin@localhost:5672
+  flyway:
+    enabled: false  
 
 logging:
   level:
@@ -41,12 +43,12 @@ ead:
       userEvent:
         course: ead.userevent.ms.course
 
-eureka:
-  client:
-    service-url:
-      default-zone: "http://localhost:8087/eureka"
-  instance:
-    hostname: localhost
+# eureka:
+#   client:
+#     service-url:
+#       default-zone: "http://localhost:8087/eureka"
+#   instance:
+#     hostname: localhost
 
 resilience4j:
   retry:
